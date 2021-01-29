@@ -1,0 +1,30 @@
+{#login/templates/login/login.html#}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+    {% if message %}
+        <div class="alert alert-warning">{{ message }}</div>
+    {% endif %}
+    {% csrf_token %}
+     <div style="margin: 15% 30%;">
+        <h1>Welcome！</h1>
+       <form action="/login/" method="post">
+            {{ login_form }}
+
+              <button type="submit" class="btn btn-primary pull-right">Submit</button>
+
+           </p>
+            <h4> Do not have an account? </h4>
+            <li><a href="/register/">Register</a></li>
+        </form>
+    </div>
+
+
+
+</body>
+</html>
