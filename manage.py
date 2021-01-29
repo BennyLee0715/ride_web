@@ -3,7 +3,7 @@
 import os
 import sys
 
-#FOR TEST
+
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ride_web.settings')
@@ -21,3 +21,4 @@ def main():
 if __name__ == '__main__':
     main()
 #....
+#111
