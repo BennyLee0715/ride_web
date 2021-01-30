@@ -1,4 +1,4 @@
-{#login/templates/login/login.html#}
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +13,7 @@
     {% csrf_token %}
      <div style="margin: 15% 30%;">
         <h1>Welcome！</h1>
-       <form action="/login/" method="post">
+       <form action="/home/" method="post">
             {{ login_form }}
 
               <button type="submit" class="btn btn-primary pull-right">Submit</button>

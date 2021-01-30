@@ -32,13 +32,14 @@ def register(request):
             password = register_form.cleaned_data['password']
             email = register_form.cleaned_data['email']
             try:
-                user = models.User.objects.get(name=username)
+                models.User.objects.get(name=username)
                 message = "User has already existed!"
                 return render(request, 'register.html', locals())
             except:
                 # user name is new
                 models.User(name = username, password = password, email = email).save()
                 return redirect('home/')
+    register_form = RegisterForm()
     return render(request, 'register.html', locals())
 def chooseCharacter(request):
 
