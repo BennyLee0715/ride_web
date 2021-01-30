@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render,redirect
 from . import models
-from .form import LoginForm
+from .form import LoginForm, RegisterForm
 
 def home(request):
     if request.method == "POST":
@@ -23,6 +23,23 @@ def home(request):
     login_form = LoginForm()
     return render(request, 'home.html', locals())
 
+def register(request):
+    if request.method == "POST":
+        register_form = RegisterForm(request.POST)
+        message = "Please try again！"
+        if register_form.is_valid():
+            username = register_form.cleaned_data['username']
+            password = register_form.cleaned_data['password']
+            email = register_form.cleaned_data['email']
+            try:
+                user = models.User.objects.get(name=username)
+                message = "User has already existed!"
+                return render(request, 'register.html', locals())
+            except:
+                # user name is new
+                models.User(name = username, password = password, email = email).save()
+                return redirect('home/')
+    return render(request, 'register.html', locals())
 def chooseCharacter(request):
 
     return render(request, 'chooseCharacter.html')

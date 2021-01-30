@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+    {% if message %}
+        <div class="alert alert-warning">{{ message }}</div>
+    {% endif %}
+
+     <div style="margin: 15% 30%;">
+        <h1>Welcome to Register Center！</h1>
+       <form action="/register/" method="post">
+
+           {% csrf_token %}
+            {{ register_form }}
+
+              <button type="submit" class="btn btn-primary pull-right">Submit</button>
+
+        </form>
+         <p>{{ rlt }}</p>
+    </div>
+
+
+
+</body>
+</html>
